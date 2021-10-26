@@ -1,0 +1,240 @@
+from tkinter import *
+import re
+
+
+def tester():
+    print("Интерфейс для этой процедуры в разработке. Пожалуйста, введите ваш текст в консоль")
+    message2 = input()
+    otvet2 = len(re.findall("=-{P", message2))
+    if otvet2 != 0:
+        print("В вашем сообщении обнаружен искомый смайлик!")
+    else:
+        print("К сожалению, смайликов не обнаружено. Ну, в другой раз повезёт!")
+
+
+def click_button1():
+    root.destroy()
+    s1 = 0
+    message1 = ["Arriving at Ilios{P", "xor=-{ahah=-{Pnein", "88=97-{76P", "=-{Programmist", "Autt=-{phaya"]
+    window = Tk()
+    window.title("Лабораторная #3")
+    window.geometry("500x500")
+    lbl = Label(window, text="Выполняю тест...")
+    lbl.grid(column=0, row=0)
+    for i in range(5):
+        number = i + 1
+        otv1 = len(re.findall("=-{P", message1[i]))
+        if otv1 != 0:
+            lbl1 = Label(window, text=f'Тестовая строка:\t{message1[i]}. Смайлик найден')
+            s1 += 1
+        else:
+            lbl1 = Label(window, text=f'Тестовая строка:\t{message1[i]}. Смайлик не найден')
+        lbl1.grid(column=0, row=i + 1)
+    lbl2 = Label(window, text="Тесты окончены. Смайлик найден в сообщениях: ")
+    lbl2.grid(column=0, row=i + 2)
+    lbl3 = Label(window, text=str(s1))
+    lbl3.grid(column=len("Тесты окончены. Смайлик найден в сообщениях:") + 1, row=i + 2)
+
+    window.mainloop()
+
+
+def click_button2():
+    root.destroy()
+    print("Интерфейс для этой процедуры в разработке. Пожалуйста, введите ваш текст в консоль")
+    s2 = 0
+    ifmo = input()
+    ifmovt = re.split("\s+", ifmo)
+
+    otvet = re.search("(^|\s)ВТ\s\S*\sИТМО(\s|$|\n|,|.)", ifmo)
+    if not otvet:
+        otvet = re.search("(^|\s)ВТ\s\S*\s\S*\sИТМО(\s|$|\n|,|.)", ifmo)
+        if not otvet:
+            otvet = re.search("(^|\s)ВТ\s\S*\s\S*\s\S*\sИТМО(\s|$|\n|,|.)", ifmo)
+            if not otvet:
+                otvet = re.search("(^|\s)ВТ\s\S*\s\S*\s\S*\s\S*\sИТМО(\s|$|\n|,|.)", ifmo)
+                if not otvet:
+                    otvet = re.search("(^|\s)ВТ\s+ИТМО(\s|$|\n|,|.)", ifmo)
+                # otvet = re.search("[\^\s]ВТ ИТМО[\s$\n,.]", ifmo)
+
+    print(otvet)
+    # for i in range(len(ifmovt)):
+    #   if ifmovt[i] == "ВТ":
+    #       if i<=len(ifmovt)-6:
+    #           for b in range(i+1, i+6):
+    #               if ifmovt[b] == "ИТМО":
+    #                   otvet = ''
+    #                   for e in range(i, b+1):
+    #                       otvet = otvet + ' ' + ifmovt[e]
+    #                   print(otvet)
+    #       else:
+    #           for b in range(i+1, len(ifmovt)):
+    #               if ifmovt[b] == "ИТМО":
+    #                   otvet = ''
+    #                   for e in range(i, b+1):
+    #                       otvet = otvet + ' ' + ifmovt[e]
+    #                       print(otvet)
+
+
+def click_button3():
+    root.destroy()
+    print("Интерфейс для этой процедуры в разработке. Пожалуйста, введите ваш текст в консоль")
+    otve = input()
+    data = re.findall("\d+", otve)
+    voc = ["h" + str(i) for i in range(len(data))]
+
+    for i in range(len(data)):
+        otve = re.sub(data[i], voc[i], otve, count=1)
+
+    for i in range(len(data)):
+        otve = re.sub(voc[i], str(3*int(data[i])**2 + 5), otve)
+
+    print(otve)
+
+
+def click_button4():
+    exit()
+
+
+def click_button5():
+    import turtle
+    turtle.color('white', 'black')
+    turtle.goto(-40, 100)
+    turtle.begin_fill()
+    turtle.right(90)
+    turtle.fd(100)
+    turtle.left(90)
+    turtle.fd(30)
+    turtle.left(90)
+    turtle.fd(100)
+    turtle.left(90)
+    turtle.fd(30)
+    turtle.end_fill()
+
+    turtle.goto(40, 100)
+    turtle.begin_fill()
+    turtle.left(90)
+    turtle.fd(100)
+    turtle.left(90)
+    turtle.fd(30)
+    turtle.left(90)
+    turtle.fd(100)
+    turtle.left(90)
+    turtle.fd(30)
+    turtle.end_fill()
+
+    turtle.goto(0, -10)
+    turtle.begin_fill()
+    turtle.left(90)
+    turtle.fd(80)
+    turtle.left(90)
+    turtle.fd(30)
+    turtle.left(90)
+    turtle.fd(80)
+    turtle.left(90)
+    turtle.fd(30)
+    turtle.end_fill()
+
+    turtle.goto(-100, -150)
+    turtle.begin_fill()
+    turtle.left(90)
+    turtle.fd(50)
+    turtle.left(90)
+    turtle.fd(30)
+    turtle.left(90)
+    turtle.fd(50)
+    turtle.left(90)
+    turtle.fd(30)
+    turtle.end_fill()
+
+    turtle.goto(100, -150)
+    turtle.begin_fill()
+    turtle.left(90)
+    turtle.fd(50)
+    turtle.left(90)
+    turtle.fd(30)
+    turtle.left(90)
+    turtle.fd(50)
+    turtle.left(90)
+    turtle.fd(30)
+    turtle.end_fill()
+
+    turtle.color('black', 'black')
+    turtle.begin_fill()
+    turtle.fd(200)
+    turtle.left(90)
+    turtle.fd(30)
+    turtle.left(90)
+    turtle.fd(200)
+    turtle.left(90)
+    turtle.fd(30)
+    turtle.end_fill()
+
+    turtle.begin_fill()
+    turtle.left(90)
+    turtle.fd(75)
+    turtle.goto(12.5, -125)
+    turtle.goto(0, -150)
+    turtle.end_fill()
+
+    turtle.goto(-100, -150)
+    turtle.goto(-100, -200)
+    turtle.color('white', 'black')
+    turtle.goto(-100, -250)
+    turtle.color('black', 'black')
+    turtle.begin_fill()
+    turtle.left(90)
+    turtle.fd(30)
+    turtle.left(90)
+    turtle.fd(230)
+    turtle.left(90)
+    turtle.fd(30)
+    turtle.left(90)
+    turtle.fd(230)
+    turtle.end_fill()
+    turtle.left(90)
+    turtle.fd(30)
+    turtle.left(90)
+    turtle.fd(230)
+    turtle.begin_fill()
+    turtle.right(90)
+    turtle.fd(30)
+    turtle.right(30)
+    turtle.fd(20)
+    turtle.right(60)
+    turtle.fd(50)
+    turtle.right(60)
+    turtle.fd(20)
+    turtle.right(30)
+    turtle.fd(30)
+    turtle.goto(130, -280)
+    turtle.end_fill()
+
+
+root = Tk()
+root.title("Лабораторная #3")
+root.geometry("350x350")
+
+btn = Button(text="Искать смайлики", background="#555", foreground="#ccc",
+             padx="20", pady="8", font="16", command=click_button1)
+btn.pack()
+
+btn2 = Button(text="Искать ВТ ИТМО", background="#555", foreground="#ccc",
+              padx="20", pady="8", font="16", command=click_button2)
+btn2.pack()
+
+btn3 = Button(text="Помочь Васе", background="#555", foreground="#ccc",
+              padx="20", pady="8", font="16", command=click_button3)
+btn3.pack()
+
+btn4 = Button(text="Нарисовать смайлик", background="#555", foreground="#ccc",
+              padx="20", pady="8", font="16", command=click_button5)
+btn4.pack()
+
+btn5 = Button(text="Выйти", background="#555", foreground="#ccc",
+              padx="20", pady="8", font="16", command=click_button4)
+btn5.pack()
+
+btntest = Button(text="Хотите сами проверить смайлики?", background="#555", foreground="#ccc",
+                 padx="20", pady="8", font="16", command=tester)
+btntest.pack()
+root.mainloop()
