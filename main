@@ -7,7 +7,7 @@ def tester():
     message2 = input()
     otvet2 = len(re.findall("=-{P", message2))
     if otvet2 != 0:
-        print("В вашем сообщении обнаружен искомый смайлик!")
+        print("В вашем сообщении обнаружен искомый смайлик! Количество: ", otvet2)
     else:
         print("К сожалению, смайликов не обнаружено. Ну, в другой раз повезёт!")
 
@@ -43,18 +43,9 @@ def click_button2():
     print("Интерфейс для этой процедуры в разработке. Пожалуйста, введите ваш текст в консоль")
     s2 = 0
     ifmo = input()
-    ifmovt = re.split("\s+", ifmo)
+    #ifmovt = re.split("\s+", ifmo)
 
-    otvet = re.search("(^|\s)ВТ\s\S*\sИТМО(\s|$|\n|,|.)", ifmo)
-    if not otvet:
-        otvet = re.search("(^|\s)ВТ\s\S*\s\S*\sИТМО(\s|$|\n|,|.)", ifmo)
-        if not otvet:
-            otvet = re.search("(^|\s)ВТ\s\S*\s\S*\s\S*\sИТМО(\s|$|\n|,|.)", ifmo)
-            if not otvet:
-                otvet = re.search("(^|\s)ВТ\s\S*\s\S*\s\S*\s\S*\sИТМО(\s|$|\n|,|.)", ifmo)
-                if not otvet:
-                    otvet = re.search("(^|\s)ВТ\s+ИТМО(\s|$|\n|,|.)", ifmo)
-                # otvet = re.search("[\^\s]ВТ ИТМО[\s$\n,.]", ifmo)
+    otvet = re.search("\bВТ(\s\S+){0,4}\sИТМО\b", ifmo)
 
     print(otvet)
     # for i in range(len(ifmovt)):
@@ -80,13 +71,12 @@ def click_button3():
     print("Интерфейс для этой процедуры в разработке. Пожалуйста, введите ваш текст в консоль")
     otve = input()
     data = re.findall("\d+", otve)
-    voc = ["h" + str(i) for i in range(len(data))]
+    #voc = ["h" + str(i) for i in range(len(data))]
 
+    #for i in range(len(data)):
+        #otve = re.sub(data[i], voc[i], otve, count=1)
     for i in range(len(data)):
-        otve = re.sub(data[i], voc[i], otve, count=1)
-
-    for i in range(len(data)):
-        otve = re.sub(voc[i], str(3*int(data[i])**2 + 5), otve)
+        otve = re.sub(data[i], str(3*int(data[i])**2 + 5), otve, count=1)
 
     print(otve)
 
